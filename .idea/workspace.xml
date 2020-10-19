@@ -2,15 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="29b58cc2-d6da-48b7-a7ca-db1cf4c0aefa" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/meiduo_mall.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/meiduo/apps/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/meiduo/meiduo/settings/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/meiduo/meiduo/settings/dev.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/meiduo/meiduo/settings/prod.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/meiduo/meiduo/apps/__init__.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/meiduo/meiduo/apps/users/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/meiduo/apps/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/meiduo/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/meiduo/meiduo/settings/dev.py" beforeDir="false" afterPath="$PROJECT_DIR$/meiduo/meiduo/settings/dev.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -18,22 +15,39 @@
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="DatabaseView">
+    <option name="SHOW_INTERMEDIATE" value="true" />
+    <option name="GROUP_DATA_SOURCES" value="true" />
+    <option name="GROUP_SCHEMA" value="true" />
+    <option name="GROUP_CONTENTS" value="false" />
+    <option name="SORT_POSITIONED" value="false" />
+    <option name="SHOW_EMPTY_GROUPS" value="false" />
+    <option name="AUTO_SCROLL_FROM_SOURCE" value="false" />
+    <option name="HIDDEN_KINDS">
+      <set />
+    </option>
+    <expand />
+    <select />
+  </component>
   <component name="FileEditorManager">
     <leaf>
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/meiduo/meiduo/settings/dev.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="124">
-              <caret line="26" lean-forward="true" selection-start-line="26" selection-end-line="26" />
+            <state relative-caret-position="66">
+              <caret line="167" column="6" lean-forward="true" selection-start-line="167" selection-start-column="6" selection-end-line="167" selection-end-column="6" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/meiduo/manage.py">
+        <entry file="file://$PROJECT_DIR$/meiduo/meiduo/apps/users/models.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="286">
-              <caret line="14" column="35" selection-start-line="14" selection-start-column="35" selection-end-line="14" selection-end-column="35" />
+            <state>
+              <caret lean-forward="true" />
+              <folding>
+                <element signature="e#0#28#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -55,6 +69,8 @@
       <list>
         <option value="$PROJECT_DIR$/meiduo/manage.py" />
         <option value="$PROJECT_DIR$/.gitignore" />
+        <option value="$PROJECT_DIR$/meiduo/apps/users/urls.py" />
+        <option value="$PROJECT_DIR$/meiduo/apps/users/models.py" />
         <option value="$PROJECT_DIR$/meiduo/meiduo/settings/dev.py" />
       </list>
     </option>
@@ -80,17 +96,6 @@
               <item name="meiduo_mall" type="b2602c69:ProjectViewProjectNode" />
               <item name="meiduo_mall" type="462c0819:PsiDirectoryNode" />
             </path>
-            <path>
-              <item name="meiduo_mall" type="b2602c69:ProjectViewProjectNode" />
-              <item name="meiduo_mall" type="462c0819:PsiDirectoryNode" />
-              <item name="meiduo" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="meiduo_mall" type="b2602c69:ProjectViewProjectNode" />
-              <item name="meiduo_mall" type="462c0819:PsiDirectoryNode" />
-              <item name="meiduo" type="462c0819:PsiDirectoryNode" />
-              <item name="meiduo" type="462c0819:PsiDirectoryNode" />
-            </path>
           </expand>
           <select />
         </subPane>
@@ -100,12 +105,19 @@
   </component>
   <component name="PropertiesComponent">
     <property name="ASKED_SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="DatabaseDriversLRU" value="mysql" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="database.console.LAST_STATE" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/meiduo/manage.py" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/meiduo/meiduo" />
+    </key>
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -154,12 +166,12 @@
       <option name="presentableId" value="Default" />
       <updated>1603081398126</updated>
       <workItem from="1603081404381" duration="452000" />
-      <workItem from="1603089446664" duration="5226000" />
+      <workItem from="1603089446664" duration="11215000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="5678000" />
+    <option name="totallyTimeSpent" value="11667000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="67" y="25" width="971" height="853" extended-state="6" />
@@ -168,6 +180,7 @@
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.1908397" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
+      <window_info anchor="bottom" id="Database Console" weight="0.32909605" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
       <window_info anchor="bottom" id="Run" order="2" weight="0.32909605" />
@@ -185,7 +198,7 @@
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="right" id="SciView" order="3" />
-      <window_info anchor="right" id="Database" order="4" />
+      <window_info anchor="right" id="Database" order="4" weight="0.3293348" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -223,10 +236,37 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/meiduo/meiduo/urls.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="129">
+          <caret line="11" column="21" lean-forward="true" selection-start-line="11" selection-start-column="21" selection-end-line="11" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/meiduo/meiduo/apps/users/urls.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="22">
+          <caret line="1" column="12" selection-start-line="1" selection-start-column="12" selection-end-line="1" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/380efef8-9219-443f-abba-487dcacb1fe1/console.sql">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/meiduo/meiduo/apps/users/models.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret lean-forward="true" />
+          <folding>
+            <element signature="e#0#28#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/meiduo/meiduo/settings/dev.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="124">
-          <caret line="26" lean-forward="true" selection-start-line="26" selection-end-line="26" />
+        <state relative-caret-position="66">
+          <caret line="167" column="6" lean-forward="true" selection-start-line="167" selection-start-column="6" selection-end-line="167" selection-end-column="6" />
         </state>
       </provider>
     </entry>
