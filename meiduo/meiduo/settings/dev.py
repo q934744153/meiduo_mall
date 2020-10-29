@@ -40,7 +40,9 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'users',
     'corsheaders',
-    'verification'
+    'verification',
+    'oauth',
+    'areas',
 ]
 
 MIDDLEWARE = [
@@ -202,3 +204,27 @@ AUTH_USER_MODEL = 'users.User'
 # https://docs.djangoproject.com/en/2.2/howto/static-files/
 
 STATIC_URL = '/static/'
+AUTHENTICATION_BACKENDS = [
+    # 'django.contrib.auth.backends.ModelBackend', # 默认的认证后端
+    'users.utils.UsernameMobileAuthBackend', # 自定义的认证后端
+]
+QQ_CLIENT_ID = '101474184'
+# 我们申请的 客户端秘钥
+QQ_CLIENT_SECRET = 'c6ce949e04e12ecc909ae6a8b09b637c'
+# 我们申请时添加的: 登录成功后回调的路径
+QQ_REDIRECT_URI = 'http://www.meiduo.site:8080/oauth_callback.html'
+
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+# 我们使用的 smtp服务器 地址
+EMAIL_HOST = 'smtp.163.com'
+# 端口号
+EMAIL_PORT = 25
+# 下面的内容是可变的, 随后台设置的不同而改变:
+# 发送邮件的邮箱
+EMAIL_HOST_USER = 'q934744153@163.com'
+# 在邮箱中设置的客户端授权密码
+EMAIL_HOST_PASSWORD = 'ZEZMQOQSTHKDAJOC'
+# 收件人看到的发件人
+EMAIL_FROM = '東方未明<q934744153@163.com>'
+
+EMAIL_VERIFY_URL = 'http://www.meiduo.site:8080/success_verify_email.html?token='
