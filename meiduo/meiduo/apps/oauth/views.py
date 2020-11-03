@@ -7,6 +7,8 @@ from django.contrib.auth import login
 import logging
 import json,re
 from django.db import DatabaseError
+
+from carts.utils import merge_cart_cookie_to_redis
 from users.models import User
 from django_redis import get_redis_connection
 from meiduo.utils.secret import SecretOauth
@@ -118,7 +120,7 @@ class QQUserView(View):
         response.set_cookie('username',
                             user.username,
                             max_age=3600*24*14)
-
+        merge_cart_cookie_to_redis(request = request, response=response)
         return  response
 
 

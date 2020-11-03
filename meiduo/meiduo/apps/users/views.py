@@ -2,6 +2,8 @@ from django import http
 from django.views import View
 from django_redis import get_redis_connection
 
+from carts.utils import merge_cart_cookie_to_redis
+from goods.models import SKU
 from meiduo.utils.secret import SecretOauth
 from users.models import User
 from .models import Address
@@ -112,6 +114,7 @@ class LoginView(View):
         #response = http.JsonResponse.set_cookie('username',username,3600*24*14)
         response = http.JsonResponse({'code':0,'errmsg':'OK'})
         response.set_cookie('username',username,max_age=3600*24*14)
+        merge_cart_cookie_to_redis(request = request, response=response)
         return response
 
 class LogoutView(View):
@@ -429,5 +432,44 @@ class UpdatePassword(LoginRequiredJSONMixin,View):
         return http.JsonResponse({'code':0,'errmsg':'ok'})
 
 
+class UserBrowseHistory(LoginRequiredJSONMixin,View):
+    def post(self,request):
+        json_dict = json.loads(request.body.decode())
+        sku_id = json_dict.get('sku_id')
+        try:
+            SKU.objects.get(id=sku_id)
+        except Exception as e:
+            return http.HttpResponse('sku不存在')
 
+        redis_conn = get_redis_connection('history')
+        pl = redis_conn.pipeline()
+        save_key = 'history_%s'% request.user.id
+        pl.lrem(save_key,0,sku_id)
+        pl.lpush(save_key,sku_id)
+        pl.ltrim(save_key,0,4)
+        pl.execute()
+        return  http.JsonResponse({'code':0,'errmsg':'ok'})
 
+    def get(self,request):
+        user = request.user
+        user_id = user.id
+        redis_conn = get_redis_connection('history')
+        try:
+            skus = redis_conn.lrange('history_%s'%user_id,0,-1)
+        except Exception as e:
+            return http.HttpResponse('無瀏覽記錄')
+        sku_list = []
+        for sku in skus:
+            sku = SKU.objects.get(id = sku)
+            sku_list.append({
+                'id':sku.id,
+                'name':sku.name,
+                'default_image_url':sku.default_image.url,
+                'price':sku.price,
+
+            })
+        return http.JsonResponse({
+            'code':0,
+            'errmsg':'ok',
+            'skus':sku_list,
+        })

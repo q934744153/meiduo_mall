@@ -5,4 +5,5 @@ urlpatterns=[
 
     path('qq/authorization/',views.QQURLView.as_view()),
     path('oauth_callback/',views.QQUserView.as_view()),
+
 ]

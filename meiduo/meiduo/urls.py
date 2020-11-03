@@ -27,4 +27,8 @@ urlpatterns = [
     path('',include('verification.urls')),
     path('',include('oauth.urls')),
     path('',include(('areas.urls'))),
+    path(r'', include('contents.urls')),
+    path('',include('goods.urls')),
+    path('',include('carts.urls')),
+    path('',include('orders.urls'))
 ]

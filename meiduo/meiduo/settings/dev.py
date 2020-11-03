@@ -43,6 +43,13 @@ INSTALLED_APPS = [
     'verification',
     'oauth',
     'areas',
+
+    'goods',
+    'django_crontab',
+    'haystack',
+    'carts',
+    'orders',
+    #'contents',
 ]
 
 MIDDLEWARE = [
@@ -88,6 +95,7 @@ DATABASES = {
         'USER': 'xiami', # 数据库用户名
         'PASSWORD': 'kuailezjh', # 数据库用户密码
         'NAME': 'meiduo_mall' # 数据库名字
+
     },
 }
 CACHES = {
@@ -107,9 +115,24 @@ CACHES = {
             "CLIENT_CLASS": "django_redis.client.DefaultClient",
         }
     },
+    #redis 2晧
     "verify_code": {
         "BACKEND": "django_redis.cache.RedisCache",
         "LOCATION": "redis://127.0.0.1:6379/2",
+        "OPTIONS": {
+            "CLIENT_CLASS": "django_redis.client.DefaultClient",
+        }
+    },
+    "history": { # 用户浏览记录
+        "BACKEND": "django_redis.cache.RedisCache",
+        "LOCATION": "redis://127.0.0.1:6379/3",
+        "OPTIONS": {
+            "CLIENT_CLASS": "django_redis.client.DefaultClient",
+        }
+    },
+    "carts": {
+        "BACKEND": "django_redis.cache.RedisCache",
+        "LOCATION": "redis://127.0.0.1:6379/5",
         "OPTIONS": {
             "CLIENT_CLASS": "django_redis.client.DefaultClient",
         }
@@ -191,7 +214,7 @@ CORS_ALLOW_CREDENTIALS = True
 
 LANGUAGE_CODE = 'en-us'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'Asia/Shanghai'
 
 USE_I18N = True
 
@@ -228,3 +251,21 @@ EMAIL_HOST_PASSWORD = 'ZEZMQOQSTHKDAJOC'
 EMAIL_FROM = '東方未明<q934744153@163.com>'
 
 EMAIL_VERIFY_URL = 'http://www.meiduo.site:8080/success_verify_email.html?token='
+
+DEFAULT_FILE_STORAGE = 'meiduo.utils.fastdfs.FastDFSStorage'
+# 指定图片服务的链接的前缀
+FDFS_BASE_URL = "http://image.meiduo.site:8888/"
+
+CRONJOBS = [('*/1 * * * *', 'apps.contents.crons.generate_static_index_html', '>> ' + os.path.join(BASE_DIR, 'logs/crontab.log'))]
+
+HAYSTACK_CONNECTIONS = {
+    'default': {
+        'ENGINE': 'haystack.backends.elasticsearch_backend.ElasticsearchSearchEngine',
+        'URL': 'http://192.168.248.141:9200/', # Elasticsearch服务器ip地址，端口号固定为9200
+        'INDEX_NAME': 'meiduo_mall', # Elasticsearch建立的索引库的名称
+    },
+}
+
+# 当添加、修改、删除数据时，自动生成索引
+HAYSTACK_SIGNAL_PROCESSOR = 'haystack.signals.RealtimeSignalProcessor'
+HAYSTACK_SEARCH_RESULTS_PER_PAGE = 5

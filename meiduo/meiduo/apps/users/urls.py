@@ -15,4 +15,5 @@ urlpatterns = [
     re_path(r'^addresses/(?P<address_id>\d+)/default/$',views.Default_Address.as_view()),
     re_path(r'^addresses/(?P<address_id>\d+)/title/$',views.SetTitle.as_view()),
     re_path(r'^password/$',views.UpdatePassword.as_view()),
+    path('browse_histories/', views.UserBrowseHistory.as_view()),
 ]  #http://www.meiduo.site:8000/mobiles/15800239534/count/
